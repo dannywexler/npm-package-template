@@ -9,6 +9,9 @@
     "author": "Danny Wexler",
     "license": "MIT",
     "type": "module",
+    "engines": {
+        "node": ">=20.0.0"
+    },
     "exports": {
         ".": {
             "import": "./dist/index.js",
@@ -21,67 +24,18 @@
     "files": [
         "dist"
     ],
-    "dependencies": {
-        "zod": "^3.24.1"
-    },
     "devDependencies": {
-        "@biomejs/biome": "^1.9.4",
-        "tsup": "^8.3.5",
-        "typescript": "^5.7.2",
+        "@biomejs/biome": "2.2.6",
+        "lefthook": "^1.13.6",
+        "tsdown": "^0.12.9",
+        "typescript": "^5.9.3",
         "vite-tsconfig-paths": "^5.1.4",
-        "vitest": "^2.1.8"
+        "vitest": "^3.2.4"
     },
     "scripts": {
-        "build": "wireit",
-        "test": "wireit",
+        "build": "lefthook run build",
+        "lint": "biome check --error-on-warnings --colors=force --write src",
+        "test": "vitest run",
         "test:watch": "vitest"
-    },
-    "wireit": {
-        "lint": {
-            "command": "biome check --error-on-warnings --colors=force --write src",
-            "files": [
-                "src"
-            ],
-            "output": []
-        },
-        "check": {
-            "command": "tsc --build --pretty",
-            "dependencies": [
-                "lint"
-            ],
-            "files": [
-                "src/**/*.ts",
-                "tsconfig.json"
-            ],
-            "output": [
-                "tsconfig.tsbuildinfo"
-            ]
-        },
-        "test": {
-            "command": "vitest run",
-            "dependencies": [
-                "check"
-            ],
-            "files": [
-                "src",
-                "test"
-            ],
-            "output": []
-        },
-        "build": {
-            "command": "tsup",
-            "dependencies": [
-                "test"
-            ],
-            "files": [
-                "src",
-                "tsconfig.json",
-                "tsconfig.tsbuildinfo",
-                "tsup.config.ts"
-            ],
-            "output": [
-                "dist"
-            ]
-        }
     }
 }

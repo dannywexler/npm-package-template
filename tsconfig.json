@@ -4,10 +4,7 @@
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
         "exactOptionalPropertyTypes": true,
-        "lib": [
-            "ESNext",
-            "DOM"
-        ],
+        "lib": ["ESNext", "DOM"],
         "incremental": true,
         "tsBuildInfoFile": "tsconfig.tsbuildinfo",
         "module": "ESNext",
@@ -24,11 +21,10 @@
         "skipLibCheck": true,
         "strict": true,
         "target": "ESNext",
+        "types": ["vitest/importMeta"],
         "verbatimModuleSyntax": true,
         "paths": {
-            "$/*": [
-                "./src/*"
-            ]
+            "$/*": ["./src/*"]
         }
     }
 }
