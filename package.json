@@ -5,7 +5,10 @@
     "keywords": [
         "ADD KEYWORDS"
     ],
-    "repository": "github:dannywexler/PACKAGE_NAME",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dannywexler/PACKAGE_NAME.git"
+    },
     "author": "Danny Wexler",
     "license": "MIT",
     "type": "module",
@@ -34,8 +37,6 @@
     },
     "scripts": {
         "build": "lefthook run build",
-        "lint": "biome check --error-on-warnings --colors=force --write src",
-        "test": "vitest run",
         "test:watch": "vitest"
     }
 }
